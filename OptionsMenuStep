@@ -1,5 +1,11 @@
-if(!global.options_shown) {
-	visible = false;
-} else {
-	visible = true;
+x = obj_player.x;
+
+if(keyboard_check_pressed(vk_escape)) {
+	if(global.options_shown) {
+		global.options_shown = false;
+		visible = false;
+	} else {
+		global.options_shown = true;
+		visible = true;
+	}
 }
