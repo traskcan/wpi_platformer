@@ -2,3 +2,4 @@ hsp = 0;
 vsp = 0;
 grv = 0.7;
 walkspeed = 4;
+idle_direction = 1;
