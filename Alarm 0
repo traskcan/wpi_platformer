@@ -1,0 +1,11 @@
+alarm[0]=50;
+if(instance_exists(Obj_Gun))
+{
+	instance_create_layer(Obj_Gun.x,Obj_Gun.y,"Instances",Obj_Bullet);
+	with(Obj_Bullet)
+	{
+		speed=10;
+		direction=Obj_Gun.image_angle;
+		image_angle=direction;
+	}
+}
