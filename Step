@@ -1,0 +1,22 @@
+var dir = point_direction(x, y, OPLayer.x, OPLayer.y);
+hspeed_ = lengthdir_x(speed_, dir);
+vspeed_ = lengthdir_y(speed_, dir);
+
+if place_meeting(x+hspeed_, y, OWall) {
+while !place_meeting(x+sign(hspeed_), y, OWall) 
+{
+x += sign(hspeed_);
+}
+hspeed_ = 0;
+}
+x += hspeed_;
+
+if place_meeting(x, y+vspeed_, OWall) 
+{
+while !place_meeting(x, y+sign(vspeed_), OWall) 
+{
+y += sign(vspeed_);
+}
+vspeed_ = 0;
+}
+y += vspeed_;
