@@ -1,4 +1,4 @@
-speed_ = 2;   
-moveRight_ = true;
+speed_ = random_range(3,6);   
+moveRight_ = false;
 direction_ = 0;     
 width_ = 30;
