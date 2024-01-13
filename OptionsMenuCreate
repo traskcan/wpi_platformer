@@ -1,7 +1,1 @@
 global.options_shown = false;
-
-if(!global.options_shown) {
-	visible = false;
-} else {
-	visible = true;
-}
