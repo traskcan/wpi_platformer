@@ -1,0 +1,4 @@
+speed_ = 2;   
+moveRight_ = true;
+direction_ = 0;     
+width_ = 30;
