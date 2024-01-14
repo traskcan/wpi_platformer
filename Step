@@ -1,0 +1,14 @@
+direction_ = 1*sign(-1 + (2* moveRight_)); 
+
+xNext_ = x + (speed_ * direction_);      
+
+if (position_meeting(xNext_ + (width_ * direction_),y,OWall)){                
+	while !(position_meeting(x + (width_ * direction_),y,OWall))  x += 1* direction_;  
+	
+	moveRight_ =  (1 - moveRight_); 
+	
+}
+
+else x = xNext_;    
+
+event_user(state_);
