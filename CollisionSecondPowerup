@@ -1,0 +1,3 @@
+instance_create_depth(x,y,1,obj_player_pause);
+object_set_sprite(obj_player_pause,sprite_index);
+instance_destroy();
