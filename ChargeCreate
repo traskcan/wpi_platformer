@@ -1,0 +1,15 @@
+alarm[0] = game_get_speed(gamespeed_fps);
+
+vsp = global.vsp_holder;
+grv = 0.7;
+
+
+if(global.charge_direction == 1) {
+	hsp = 9;
+	sprite_index = spr_gompei_charge_right;
+	image_speed = 1;
+} else {
+	hsp = -9;
+	sprite_index = spr_gompei_charge_left;
+	image_speed = 1;
+}
