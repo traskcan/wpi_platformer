@@ -1,11 +1,16 @@
-alarm[0]=50;
-if(instance_exists(Obj_Gun))
-{
-	instance_create_layer(Obj_Gun.x,Obj_Gun.y,"Instances",Obj_Bullet);
-	with(Obj_Bullet)
-	{
-		speed=10;
-		direction=Obj_Gun.image_angle;
-		image_angle=direction;
+if alarm[0] <= 0 {
+		var dir = point_direction(x, y, OPLayer.x, OPLayer.y-OPLayer.sprite_height/2);
+		var x_offset = lengthdir_x(20, dir);
+		var y_offset = lengthdir_y(20, dir);
+
+		var bullet = instance_create_layer(x+x_offset, y+y_offset, "Instances", Obj_Bullet_2);
+		bullet.direction = dir;
+		alarm[0] = bullet_cooldown_;
+	}
+	
+	if instance_exists(OPLayer) {
+	
+	if distance_to_object(OPLayer) < 300 {
+		state_ = ATTACK;
 	}
 }
