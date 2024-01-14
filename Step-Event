@@ -7,6 +7,23 @@ if (position_meeting(xNext_ + (width_ * direction_),y,obj_barrier)){
 	
 	moveRight_ =  (1 - moveRight_); 
 	
+	image_xscale = -image_xscale;
+} else x = xNext_;
+
+if (position_meeting(xNext_ + (width_ * direction_),y,obj_barrier_invis)){                
+	while !(position_meeting(x + (width_ * direction_),y,obj_barrier_invis))  x += 1* direction_;  
+	
+	moveRight_ =  (1 - moveRight_); 
+	
+	image_xscale = -image_xscale;
 }
 
 else x = xNext_;   
+
+if (position_meeting(xNext_ + (width_ * direction_),y,obj_barrier_cloud)){                
+	while !(position_meeting(x + (width_ * direction_),y,obj_barrier_cloud))  x += 1* direction_;  
+	
+	moveRight_ =  (1 - moveRight_); 
+	
+	image_xscale = -image_xscale;
+} else x = xNext_;
