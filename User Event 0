@@ -1,0 +1,6 @@
+if instance_exists(OPLayer) {
+	
+	if distance_to_object(OPLayer) < 300 {
+		state_ = ATTACK;
+	}
+}
