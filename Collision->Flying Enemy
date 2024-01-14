@@ -1,16 +1,47 @@
 var dir = point_direction(other.x, other.y, x, y);
 hspeed_push_ += lengthdir_x(.1, dir);
 vspeed_push_ += lengthdir_y(.1, dir);
-if place_meeting(x+hspeed_push_, y, OWall) {
-		while !place_meeting(x+sign(hspeed_push_), y, OWall) {
+
+//Horizontal
+	if place_meeting(x+hspeed_push_, y, obj_barrier) {
+		while !place_meeting(x+sign(hspeed_push_), y, obj_barrier) {
+			x += sign(hspeed_push_);
+		}
+		hspeed_push_ = 0;
+	}
+	
+	if place_meeting(x+hspeed_push_, y, obj_barrier_invis) {
+		while !place_meeting(x+sign(hspeed_push_), y, obj_barrier_invis) {
+			x += sign(hspeed_push_);
+		}
+		hspeed_push_ = 0;
+	}
+	
+	if place_meeting(x+hspeed_push_, y, obj_barrier_cloud) {
+		while !place_meeting(x+sign(hspeed_push_), y, obj_barrier_cloud) {
 			x += sign(hspeed_push_);
 		}
 		hspeed_push_ = 0;
 	}
 	x += hspeed_push_;
 
-	if place_meeting(x, y+vspeed_push_, OWall) {
-		while !place_meeting(x, y+sign(vspeed_push_), OWall) {
+//Vertical
+	if place_meeting(x, y+vspeed_push_, obj_barrier) {
+		while !place_meeting(x, y+sign(vspeed_push_), obj_barrier) {
+			y += sign(vspeed_push_);
+		}
+		vspeed_push_ = 0;
+	}
+	
+	if place_meeting(x, y+vspeed_push_, obj_barrier_invis) {
+		while !place_meeting(x, y+sign(vspeed_push_), obj_barrier_invis) {
+			y += sign(vspeed_push_);
+		}
+		vspeed_push_ = 0;
+	}
+	
+	if place_meeting(x, y+vspeed_push_, obj_barrier_cloud) {
+		while !place_meeting(x, y+sign(vspeed_push_), obj_barrier_cloud) {
 			y += sign(vspeed_push_);
 		}
 		vspeed_push_ = 0;
