@@ -1,3 +1,5 @@
+image_xscale = 1;
+image_speed = 1;
 speed_ = random_range(3,6);   
 moveRight_ = false;
 direction_ = 0;     
