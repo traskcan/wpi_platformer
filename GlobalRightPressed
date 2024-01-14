@@ -1,0 +1,14 @@
+if(global.level > 1) {
+	if(can_charge) {
+		if(sprite_index == spr_gompei_idle_right) || (sprite_index == spr_gompei_run_right) {
+			global.charge_direction = 1;
+		} else {
+			global.charge_direction = 0;	
+		}
+		
+		global.vsp_holder = vsp;
+	
+		instance_create_depth(x,y,1,obj_gompei_charge);
+		instance_destroy();
+	}
+}
