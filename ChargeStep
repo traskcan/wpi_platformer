@@ -1,0 +1,47 @@
+vsp = vsp + grv;
+
+//Horizontal collision with barrier
+if(place_meeting(x+hsp,y,obj_barrier)){
+	while(!place_meeting(x+sign(hsp),y,obj_barrier)) {
+		x = x + sign(hsp);
+	}
+	hsp = 0;
+}
+
+if(place_meeting(x+hsp,y,obj_barrier_invis)){
+	while(!place_meeting(x+sign(hsp),y,obj_barrier_invis)) {
+		x = x + sign(hsp);
+	}
+	hsp = 0;
+}
+
+if(place_meeting(x+hsp,y,obj_barrier_cloud)){
+	while(!place_meeting(x+sign(hsp),y,obj_barrier_cloud)) {
+		x = x + sign(hsp);
+	}
+	hsp = 0;
+}
+x = x + hsp;
+
+//Vertical Collision with barrier
+if(place_meeting(x,y+vsp,obj_barrier)){
+	while(!place_meeting(x,y+sign(vsp),obj_barrier)) {
+		y = y + sign(vsp);
+	}
+	vsp = 0;
+}
+
+if(place_meeting(x,y+vsp,obj_barrier_invis)){
+	while(!place_meeting(x,y+sign(vsp),obj_barrier_invis)) {
+		y = y + sign(vsp);
+	}
+	vsp = 0;
+}
+
+if(place_meeting(x,y+vsp,obj_barrier_cloud)){
+	while(!place_meeting(x,y+sign(vsp),obj_barrier_cloud)) {
+		y = y + sign(vsp);
+	}
+	vsp = 0;
+}
+y=y+vsp;
