@@ -1,0 +1,12 @@
+speed_ = 2;   
+moveRight_ = true;
+direction_ = 0;     
+width_ = 30;
+
+bullet_cooldown_ = room_speed/2;
+alarm[0] = bullet_cooldown_;
+
+MOVEMENT = 0;
+ATTACK = 1;
+
+state_ = MOVEMENT;
