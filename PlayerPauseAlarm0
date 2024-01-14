@@ -1,0 +1,8 @@
+global.level += 1;
+if(global.level == 2) {
+	room_goto(Level_2);
+} else if(global.level == 3) {
+	room_goto(Level_3);
+} else if (global.level == 4) {
+	room_goto(Boss_Battle);
+}
