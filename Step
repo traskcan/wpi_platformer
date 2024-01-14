@@ -1,9 +1,27 @@
-var dir = point_direction(x, y, OPLayer.x, OPLayer.y);
+var dir = point_direction(x, y, obj_camera_lvl2.x, obj_camera_lvl2.y);
+image_angle = dir;
 hspeed_ = lengthdir_x(speed_, dir);
 vspeed_ = lengthdir_y(speed_, dir);
 
-if place_meeting(x+hspeed_, y, OWall) {
-while !place_meeting(x+sign(hspeed_), y, OWall) 
+//Horizontal Movement
+if place_meeting(x+hspeed_, y, obj_barrier) {
+while !place_meeting(x+sign(hspeed_), y, obj_barrier) 
+{
+x += sign(hspeed_);
+}
+hspeed_ = 0;
+}
+
+if place_meeting(x+hspeed_, y, obj_barrier_cloud) {
+while !place_meeting(x+sign(hspeed_), y, obj_barrier_cloud) 
+{
+x += sign(hspeed_);
+}
+hspeed_ = 0;
+}
+
+if place_meeting(x+hspeed_, y, obj_barrier_invis) {
+while !place_meeting(x+sign(hspeed_), y, obj_barrier_invis) 
 {
 x += sign(hspeed_);
 }
@@ -11,9 +29,28 @@ hspeed_ = 0;
 }
 x += hspeed_;
 
-if place_meeting(x, y+vspeed_, OWall) 
+//Vertical movement
+if place_meeting(x, y+vspeed_, obj_barrier) 
 {
-while !place_meeting(x, y+sign(vspeed_), OWall) 
+while !place_meeting(x, y+sign(vspeed_), obj_barrier) 
+{
+y += sign(vspeed_);
+}
+vspeed_ = 0;
+}
+
+if place_meeting(x, y+vspeed_, obj_barrier_cloud) 
+{
+while !place_meeting(x, y+sign(vspeed_), obj_barrier_cloud) 
+{
+y += sign(vspeed_);
+}
+vspeed_ = 0;
+}
+
+if place_meeting(x, y+vspeed_, obj_barrier_invis) 
+{
+while !place_meeting(x, y+sign(vspeed_), obj_barrier_invis) 
 {
 y += sign(vspeed_);
 }
@@ -23,9 +60,7 @@ y += vspeed_;
 
 
 
-if !place_meeting(x, y, Obj_Enemy_Flying) {
+if !place_meeting(x, y, obj_flying_enemy) {
 	hspeed_push_ = lerp(hspeed_push_, 0, .1);
 	vspeed_push_ = lerp(vspeed_push_, 0, .1);
 }
-
-
