@@ -2,11 +2,13 @@
 key_left = keyboard_check(ord("A"));
 key_right = keyboard_check(ord("D"));
 key_jump = keyboard_check_pressed(ord("W"));
+key_jump2 = keyboard_check_pressed(vk_space);
 
 var move = key_right - key_left;
 hsp = move * walkspeed;
 vsp = vsp + grv;
 
+//Moving animations
 if(move > 0) {
 	sprite_index = spr_gompei_run_right;
 	image_speed = 1;
@@ -28,9 +30,43 @@ if(place_meeting(x,y+1,obj_barrier)) && (key_jump) {
 	vsp = -19;
 }
 
+if(place_meeting(x,y+1,obj_barrier_invis)) && (key_jump) {
+	vsp = -19;
+}
+
+if(place_meeting(x,y+1,obj_barrier_cloud)) && (key_jump) {
+	vsp = -19;
+}
+
+if(place_meeting(x,y+1,obj_barrier)) && (key_jump2) {
+	vsp = -19;
+}
+
+if(place_meeting(x,y+1,obj_barrier_invis)) && (key_jump2) {
+	vsp = -19;
+}
+
+if(place_meeting(x,y+1,obj_barrier_cloud)) && (key_jump2) {
+	vsp = -19;
+}
+
 //Horizontal collision with barrier
-if(place_meeting(x+hsp,y,obj_barrier)) {
+if(place_meeting(x+hsp,y,obj_barrier)){
 	while(!place_meeting(x+sign(hsp),y,obj_barrier)) {
+		x = x + sign(hsp);
+	}
+	hsp = 0;
+}
+
+if(place_meeting(x+hsp,y,obj_barrier_invis)){
+	while(!place_meeting(x+sign(hsp),y,obj_barrier_invis)) {
+		x = x + sign(hsp);
+	}
+	hsp = 0;
+}
+
+if(place_meeting(x+hsp,y,obj_barrier_cloud)){
+	while(!place_meeting(x+sign(hsp),y,obj_barrier_cloud)) {
 		x = x + sign(hsp);
 	}
 	hsp = 0;
@@ -38,8 +74,22 @@ if(place_meeting(x+hsp,y,obj_barrier)) {
 x = x + hsp;
 
 //Vertical Collision with barrier
-if(place_meeting(x,y+vsp,obj_barrier)) {
+if(place_meeting(x,y+vsp,obj_barrier)){
 	while(!place_meeting(x,y+sign(vsp),obj_barrier)) {
+		y = y + sign(vsp);
+	}
+	vsp = 0;
+}
+
+if(place_meeting(x,y+vsp,obj_barrier_invis)){
+	while(!place_meeting(x,y+sign(vsp),obj_barrier_invis)) {
+		y = y + sign(vsp);
+	}
+	vsp = 0;
+}
+
+if(place_meeting(x,y+vsp,obj_barrier_cloud)){
+	while(!place_meeting(x,y+sign(vsp),obj_barrier_cloud)) {
 		y = y + sign(vsp);
 	}
 	vsp = 0;
@@ -47,7 +97,8 @@ if(place_meeting(x,y+vsp,obj_barrier)) {
 y=y+vsp;
 
 //Enemy Collision
-if (place_meeting(x,y+vsp,obj_enemy_walking)) || (place_meeting(x+hsp,y,obj_enemy_walking)) {
+if (place_meeting(x,y+vsp,obj_enemy_walking)) || (place_meeting(x+hsp,y,obj_enemy_walking)) ||
+(place_meeting(x,y+vsp,obj_spikes_hitbox)) || (place_meeting(hsp+x,y,obj_spikes_hitbox)) {
 	global.lives -= 1;
 	if(global.lives > 0) {
 		room_goto(Life_Lost);
