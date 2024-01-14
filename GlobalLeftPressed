@@ -1,0 +1,7 @@
+if(global.level > 2) {
+	if(can_shoot) {
+		instance_create_depth(x,y,3,obj_horn);
+		can_shoot = false;
+		alarm[1] = game_get_speed(gamespeed_fps) *0.25;
+	}
+}
