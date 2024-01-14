@@ -1,1 +1,5 @@
-alarm[0]=50;
+bullet_cooldown_ = room_speed;
+alarm[0] = bullet_cooldown_;
+ATTACK = 1;
+MOVEMENT = 0;
+state_ = MOVEMENT;
