@@ -3,3 +3,7 @@ vsp = 0;
 grv = 0.7;
 walkspeed = 4;
 idle_direction = 1;
+global.charge_direction = 1;
+can_charge = false;
+can_shoot = true;
+alarm[0] = game_get_speed(gamespeed_fps) * 1.5;
